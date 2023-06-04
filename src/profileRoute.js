@@ -11,4 +11,11 @@ router.patch(
   controller.updateProfile
 );
 
+router.get(
+  "/:id",
+  auth.newAuthenticator(),
+  auth.newRoleAuthorizer("STUDENT"),
+  controller.getProfile
+);
+
 export default router;

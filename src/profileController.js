@@ -1,9 +1,15 @@
 import { successResponseBuilder } from "./helpers/responseBuilder.js";
 import User from "./userModel.js";
 
-
-
-
+export const getProfile = async (req, res, next) => {
+    try {
+        const id = req.params.id;
+        const result = await User.findById(id);
+        res.status(200).json(successResponseBuilder({ user: result }));
+    } catch (error) {
+        next(err);
+    }
+};
 
 export const updateProfile = async (req, res, next) => {
     try {
