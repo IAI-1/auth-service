@@ -14,4 +14,25 @@ router.post(
   controller.signupAdmin
 );
 
+router.post(
+  '/edit-role',
+  auth.newAuthenticator(),
+  auth.isAdmin(true),
+  (req, res, next) => { res.status(200).json({ 'message': 'Edit role here' }) }
+)
+
+router.post(
+  '/reset-password',
+  auth.newAuthenticator(),
+  auth.isAdmin(true),
+  (req, res, next) => { res.status(200).json({ 'message': 'Reset password here' }) }
+)
+
+router.delete(
+  '/delete-user',
+  auth.newAuthenticator(),
+  auth.isAdmin(true),
+  (req, res, next) => { res.status(200).json({ 'message': 'Delete user here' }) }
+)
+
 export default router;
