@@ -1,3 +1,5 @@
+import multer from "multer";
+
 // Membuat konfigurasi diskStorage multer
 const diskStorage = multer.diskStorage({
     destination: function (req, file, cb) {
