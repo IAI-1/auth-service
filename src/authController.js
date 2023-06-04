@@ -14,7 +14,7 @@ export const signupAdmin = async (req, res, next) => {
       email: email.toLowerCase(),
       password: encryptedPassword,
       nama,
-      isAdmin: true,
+      role: 'ADMIN',
       fakultas: '-',
       prodi: '-',
       nim: '-'
@@ -23,7 +23,7 @@ export const signupAdmin = async (req, res, next) => {
     const token = generateAccessToken({
       id: user._id,
       email,
-      isAdmin: true,
+      role: 'ADMIN'
     });
 
     res
@@ -117,7 +117,7 @@ export const signin = async (req, res, next) => {
     const token = generateAccessToken({
       id: user._id,
       email,
-      isAdmin: user.isAdmin,
+      role: user.role,
     });
 
     res
@@ -161,7 +161,7 @@ export const resetPassword = async (req, res, next) => {
     const token = generateAccessToken({
       id: newUser._id,
       email: newUser.email,
-      isAdmin: newUser.isAdmin,
+      role: newUser.role,
     });
 
     res

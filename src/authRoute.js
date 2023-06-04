@@ -11,21 +11,21 @@ router.post('/signin', controller.signin);
 router.post(
   '/signup/admin',
   auth.newAuthenticator(),
-  auth.isAdmin(true),
+  auth.newRoleAuthorizer('ADMIN'),
   controller.signupAdmin
 );
 
 router.post(
   '/edit-role',
   auth.newAuthenticator(),
-  auth.isAdmin(true),
+  auth.newRoleAuthorizer('ADMIN'),
   (req, res, next) => { res.status(200).json({ 'message': 'Edit role here' }) }
 )
 
 router.delete(
   '/delete-user',
   auth.newAuthenticator(),
-  auth.isAdmin(true),
+  auth.newRoleAuthorizer('ADMIN'),
   (req, res, next) => { res.status(200).json({ 'message': 'Delete user here' }) }
 )
 
@@ -34,6 +34,7 @@ router.delete(
 router.post(
   '/reset-password',
   auth.newAuthenticator(),
+  auth.newRoleAuthorizer('STUDENT', 'ADMIN'),
   controller.resetPassword
 )
 
