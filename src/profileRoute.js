@@ -5,14 +5,14 @@ import * as auth from "./middlewares/auth.js";
 const router = express.Router();
 
 router.patch(
-  "/update/:id",
+  "/update",
   auth.newAuthenticator(),
   auth.newRoleAuthorizer("STUDENT"),
   controller.updateProfile
 );
 
 router.get(
-  "/:id",
+  "/",
   auth.newAuthenticator(),
   auth.newRoleAuthorizer("STUDENT"),
   controller.getProfile

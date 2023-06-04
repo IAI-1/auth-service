@@ -3,7 +3,7 @@ import User from "./userModel.js";
 
 export const getProfile = async (req, res, next) => {
     try {
-        const id = req.params.id;
+        const id = req.user.id;
         const result = await User.findById(id);
         res.status(200).json(successResponseBuilder({ user: result }));
     } catch (error) {
@@ -13,7 +13,7 @@ export const getProfile = async (req, res, next) => {
 
 export const updateProfile = async (req, res, next) => {
     try {
-        const id = req.params.id;
+        const id = req.user.id;
         const body = {
             nama: req.body.nama,
             nim: req.body.nim,
