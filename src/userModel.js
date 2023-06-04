@@ -18,15 +18,19 @@ const userSchema = new mongoose.Schema(
         },
         nama: {
             type: String,
-            required: false,
+            required: true,
         },
-        niu: {
+        nim: {
             type: String,
-            required: false,
+            required: true,
         },
         prodi: {
             type: String,
-            required: false,
+            required: true,
+        },
+        fakultas: {
+            type: String,
+            required: true,
         },
         foto: {
             type: String,
