@@ -7,40 +7,40 @@ const router = express.Router();
 // Create new student
 router.post(
     "/",
-    // auth.newAuthenticator,
-    // auth.newRoleAuthorizer('ADMIN'),
+    auth.newAuthenticator(),
+    auth.newRoleAuthorizer("ADMIN"),
     controller.createStudent
 );
 
 // Get all students
 router.get(
     "/",
-    // auth.newAuthenticator,
-    // auth.newRoleAuthorizer('ADMIN'),
+    auth.newAuthenticator(),
+    auth.newRoleAuthorizer("ADMIN"),
     controller.getAllStudents
 );
 
 // Get one student
 router.get(
     "/:id",
-    // auth.newAuthenticator,
-    // auth.newRoleAuthorizer('ADMIN'),
+    auth.newAuthenticator(),
+    auth.newRoleAuthorizer("ADMIN"),
     controller.getOneStudent
 );
 
 // Update a student profile
 router.patch(
     "/:id",
-    // auth.newAuthenticator,
-    // auth.newRoleAuthorizer('ADMIN'),
+    auth.newAuthenticator(),
+    auth.newRoleAuthorizer("ADMIN"),
     controller.updateStudent
 );
 
 // Delete a student
 router.delete(
     "/:id",
-    // auth.newAuthenticator,
-    // auth.newRoleAuthorizer('ADMIN'),
+    auth.newAuthenticator(),
+    auth.newRoleAuthorizer("ADMIN"),
     controller.deleteStudent
 );
 
