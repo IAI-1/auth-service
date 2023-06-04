@@ -17,6 +17,7 @@ export const createStudent = async (req, res, next) => {
             prodi,
             fakultas,
             role: "STUDENT",
+            foto
         });
 
         res.status(201).json(
