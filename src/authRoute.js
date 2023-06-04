@@ -15,20 +15,6 @@ router.post(
   controller.signupAdmin
 );
 
-router.post(
-  '/edit-role',
-  auth.newAuthenticator(),
-  auth.newRoleAuthorizer('ADMIN'),
-  (req, res, next) => { res.status(200).json({ 'message': 'Edit role here' }) }
-)
-
-router.delete(
-  '/delete-user',
-  auth.newAuthenticator(),
-  auth.newRoleAuthorizer('ADMIN'),
-  (req, res, next) => { res.status(200).json({ 'message': 'Delete user here' }) }
-)
-
 // Mahasiswa -------------
 
 router.post(

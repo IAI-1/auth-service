@@ -172,7 +172,3 @@ export const resetPassword = async (req, res, next) => {
     next(err);
   }
 }
-
-export const grantAccess = async (req, res, next) => {
-
-}
