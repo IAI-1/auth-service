@@ -46,9 +46,6 @@ app.get('/', (req, res) => {
 });
 
 app.use('/auth', authRouter);
-// app.use('/books', booksRouter);
-// app.use('/borrows', borrowsRouter);
-// app.use('/users', usersRouter);
 
 app.use(errorHandler);
 

@@ -40,10 +40,21 @@ export const newAuthenticator = () => {
 
 export const newRoleAuthorizer = (...roles) => {
   return (req, res, next) => {
-    if (roles.includes(!req.user.role)) {
+    console.log(roles)
+    if (roles.includes(req.user.role)) {
       next();
     } else {
       return res.status(403).json(errorResponseBuilder(httpForbidden()));
     }
   };
 };
+
+export const isAdmin = () => {
+  return (req, res, next) => {
+    if (req.user.role) {
+      next();
+    } else {
+      return res.status(403).json(errorResponseBuilder(httpForbidden()));
+    }
+  };
+}

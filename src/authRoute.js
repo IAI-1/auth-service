@@ -10,7 +10,7 @@ router.post('/signin', controller.signin);
 router.post(
   '/signup/admin',
   auth.newAuthenticator(),
-  auth.newRoleAuthorizer('ADMIN'),
+  auth.isAdmin(true),
   controller.signupAdmin
 );
 
