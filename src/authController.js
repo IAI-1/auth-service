@@ -169,6 +169,10 @@ export const resetPassword = async (req, res, next) => {
       .json(successResponseBuilder({ user: newUser, accessToken: token }));
 
   } catch (err) {
-
+    next(err);
   }
+}
+
+export const grantAccess = async (req, res, next) => {
+
 }
