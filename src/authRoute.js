@@ -7,6 +7,7 @@ const router = express.Router();
 // router.post('/signup', controller.signup);
 router.post('/signin', controller.signin);
 
+// Admin -------------
 router.post(
   '/signup/admin',
   auth.newAuthenticator(),
@@ -28,10 +29,12 @@ router.delete(
   (req, res, next) => { res.status(200).json({ 'message': 'Delete user here' }) }
 )
 
-router.patch(
+// Mahasiswa -------------
+
+router.post(
   '/reset-password',
   auth.newAuthenticator(),
-  (req, res, next) => { res.status(200).json({ 'message': 'Reset password here' }) }
+  controller.resetPassword
 )
 
 export default router;
