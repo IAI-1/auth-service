@@ -13,13 +13,13 @@ export const signupAdmin = async (req, res, next) => {
       email: email.toLowerCase(),
       password: encryptedPassword,
       name,
-      role: 'ADMIN',
+      isAdmin: true,
     });
 
     const token = generateAccessToken({
       id: user._id,
       email,
-      role: 'ADMIN',
+      isAdmin: true,
     });
 
     res
@@ -113,7 +113,7 @@ export const signin = async (req, res, next) => {
     const token = generateAccessToken({
       id: user._id,
       email,
-      role: user.role,
+      isAdmin: user.isAdmin,
     });
 
     res
@@ -123,3 +123,4 @@ export const signin = async (req, res, next) => {
     next(err);
   }
 };
+
